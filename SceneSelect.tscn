@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://SceneSelect.gd" type="Script" id=1]
+[ext_resource path="res://assets/Font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/FontDarkSmall.tres" type="DynamicFont" id=3]
+
+[node name="SceneSelect" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemList" type="ItemList" parent="."]
+margin_left = 80.0
+margin_top = 30.0
+margin_right = 240.0
+margin_bottom = 175.0
+custom_fonts/font = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+margin_right = 320.0
+margin_bottom = 26.0
+custom_fonts/font = ExtResource( 2 )
+text = "Scene Select"
+align = 1
+
+[node name="Button" type="Button" parent="."]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 39.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 3 )
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="item_selected" from="ItemList" to="." method="_on_ItemList_item_selected"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

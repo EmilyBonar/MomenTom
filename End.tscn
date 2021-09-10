@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Button.gd" type="Script" id=1]
+[ext_resource path="res://assets/Font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://DeathCount.gd" type="Script" id=3]
+[ext_resource path="res://assets/FontDarkSmall.tres" type="DynamicFont" id=4]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 320.0
+margin_bottom = 184.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer"]
+margin_left = 95.0
+margin_top = 52.0
+margin_right = 225.0
+margin_bottom = 131.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CenterContainer/GridContainer"]
+margin_right = 130.0
+margin_bottom = 26.0
+custom_fonts/font = ExtResource( 2 )
+text = "The End"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="CenterContainer/GridContainer"]
+margin_top = 30.0
+margin_right = 130.0
+margin_bottom = 62.0
+custom_fonts/font = ExtResource( 2 )
+text = "Play Again?"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DeathCount" type="Label" parent="CenterContainer/GridContainer"]
+margin_top = 66.0
+margin_right = 130.0
+margin_bottom = 79.0
+custom_fonts/font = ExtResource( 4 )
+text = "Total Deaths: 0"
+align = 1
+valign = 1
+script = ExtResource( 3 )
+
+[connection signal="pressed" from="CenterContainer/GridContainer/Button" to="CenterContainer/GridContainer/Button" method="_on_Button_pressed"]
